@@ -697,4 +697,3 @@ function UpdateUI_Scheme(val) {
   console.log(x.getInt8(0));
   document.getElementById("Schema").value = x.getInt8(0);
 }
-}
