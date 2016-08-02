@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>iBLio BLueTAG APP</title> 
+  </head>  
+  <body>
+    <div class="app">
+    
+      <h2>iBLio BLueTAG</h2>
+
+      <div id="scanPage">
+        <ul style="margin: 35px" id="scanDeviceList"></ul>
+        <br />
+        <div id="msg" style="color:orangeRed;text-align:center;"></div>
+        <div id="batteryLevel" style="font-size:130%;color:navy;text-align:center;"></div>
+        <div id="ledOn" style="font-size:130%;color:tomato;text-align:center;"></div>
+        <fieldset><legend>Select action & Tap the TAG on the List or (re)Scan </legend>               
+          <select id="accessSelection" value= "0" >
+            <option value="0">Find TAG</option>
+            <option value="1">Find TAG & URL</option>
+            <option value="2">Battery Level</option>
+            <option value="3">Config TAG</option>
+          </select>
+          <button id="scanRescanButton">&nbsp;&nbsp; (re)Scan &nbsp;&nbsp;</button><br />
+        </fieldset>
+        <br />
+        <center>
+          <p>
+            <img src="iBLio_logo_small.jpg" alt="iBLio" id="openURL"><br />
+            <b>www.iblio.net</b><br />
+            connect@iblio.net<br />
+            <small>[Rel.20160802]</small>
+          </p>
+        </center>
+      </div> 
+			
+      <div id="servicePage">
+
+        <h3>Services Page</h3>
+		
+        <fieldset><legend>[Access Password Entry]</legend>
+          <input type="password" id="PSW" value="" size="8">&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="Set_PSW()" value="  Login  "><br />
+        </fieldset><br />
+        <fieldset><legend>Configuration Pages</legend>
+          <button id="accessControlButton">&nbsp;&nbsp; Access Control &nbsp;&nbsp;</button><br />
+          <button id="generalConfigButton">&nbsp;&nbsp; General Config &nbsp;&nbsp;</button><br />
+          <button id="eddystoneButton">&nbsp;&nbsp;&nbsp;&nbsp; Eddystone &nbsp;&nbsp;&nbsp;&nbsp;</button><br />
+          <button id="configurationPageButton">&nbsp;&nbsp;&nbsp;&nbsp; Config Page &nbsp;&nbsp;&nbsp;&nbsp;</button><br />
+				</fieldset>
+        <button id="exitButton">&nbsp;&nbsp; Exit &nbsp;&nbsp;</button><br />
+      </div>
+	
+      <div id="accessControlPage">
+    
+        <h3>Acces Control Page</h3>
+        
+        <fieldset><legend>Access Control</legend>
+          <select id="access_control" value= "1" >
+            <option value="0">OFF</option>
+            <option value="1">ON</option>
+          </select>
+          &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="Set_access_control()" value="Set">
+        </fieldset>
+        <fieldset><legend>Access Password</legend>
+          <input type="text" id="access_password" size="8">
+          &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="Set_password()" value="Set">
+        </fieldset>
+        <fieldset><legend>Access enable at Power ON for 60 sec</legend>
+          <select id="access_power_on" >
+            <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+          </select>
+          &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="Set_access_at_poweron()" value="Set">
+        </fieldset>
+        <fieldset><legend>Factory Default</legend>
+          <b style="color:red"> Tap & Wait While Restoring Factory Default </b>
+          <p style="text-align:right" >
+          <input type="button" onclick="Set_factory_default()" value="Confirm" >
+          </p>
+        </fieldset>
+        <button id="exit3Button">&nbsp;&nbsp; Exit &nbsp;&nbsp;</button>
+      </div>
+  
+      <div id="generalConfigPage">
+        
+        <h3>General Config Page</h3>
+        
+        <form id="connParameters">
+        <fieldset><legend>ADV Period</legend>
+          <select id="ADV_period">
+            <option value="0">125 millisec</option>
+            <option value="1">250 millisec</option>
+            <option value="2">500 millisec</option>
+            <option value="3">1 sec</option>
+            <option value="4">2 sec</option>
+            <option value="5">4 sec</option>
+            <option value="6">6 sec</option>
+            <option value="7">8 sec</option>
+          </select>
+          <input type="button" onclick="Set_ADV_period()" value="Set">
+        </fieldset>
+        <fieldset><legend>Tx Level</legend>
+          <select id="Tx_lev">
+            <option value="8">+8dBm</option>
+            <option value="7">+7dBm</option>
+            <option value="6">+6dBm</option>
+            <option value="5">+5dBm</option>
+            <option value="4">+4dBm</option>
+            <option value="3">+3dBm</option>
+            <option value="2">+2dBm</option>
+            <option value="1">+1dBm</option>
+            <option value="0"> 0dBm</option>
+            <option value="-1">-1dBm</option>
+            <option value="-2">-2dBm</option>
+            <option value="-3">-3dBm</option>
+            <option value="-4">-4dBm</option>
+            <option value="-5">-5dBm</option>
+            <option value="-6">-6dBm</option>
+            <option value="-7">-7dBm</option>
+            <option value="-8">-8dBm</option>
+            <option value="-9">-9dBm</option>
+            <option value="-10">-10dBm</option>
+            <option value="-11">-11dBm</option>
+            <option value="-12">-12dBm</option>
+            <option value="-13">-13dBm</option>
+            <option value="-14">-14dBm</option>
+            <option value="-15">-15dBm</option>
+            <option value="-16">-16dBm</option>
+            <option value="-17">-17dBm</option>
+            <option value="-18">-18dBm</option>
+            <option value="-19">-19dBm</option>
+            <option value="-20">-20dBm</option>
+            <option value="-21">-21dBm</option>
+            <option value="-22">-22dBm</option>
+            <option value="-23">-23dBm</option>
+            <option value="-24">-24dBm</option>
+          </select>
+          &nbsp;&nbsp;
+          <select id="Tx_lev_decimals">
+            <option value="0">+0dBm</option>
+            <option value="1">+0,1dBm</option>
+            <option value="2">+0,2dBm</option>
+            <option value="3">+0,3dBm</option>
+            <option value="4">+0,4dBm</option>
+            <option value="5">+0,5dBm</option>
+            <option value="6">+0,6dBm</option>
+            <option value="7">+0,7dBm</option>
+            <option value="8">+0,8dBm</option>
+            <option value="9">+0,9dBm</option>
+          </select>
+          &nbsp;&nbsp;
+          <input type="button" onclick="Set_TX_lev()" value="Set">
+        </fieldset>
+        <fieldset><legend>RSSI at 1mt [dBm]</legend>
+          <input type="number" id="RSSI" value="-72" min="-20" max="-80">&nbsp;&nbsp;
+          <input type="button" onclick="Set_RSSI()" value="Set"></br>
+          <b style="color:red"> Enter the value read from a scanner </b>
+        </fieldset>
+        <fieldset><legend>ADV Channels</legend>
+          <select id="ADV_ch">
+            <option value="1">1 ADV Channel</option>
+            <option value="3">2 ADV Channel</option>
+            <option value="7">3 ADV Channel</option>
+          </select>
+          <input type="button" onclick="Set_ADV_ch()" value="Set">
+        </fieldset>
+        </form>
+        <button id="exit2Button">&nbsp;&nbsp; Exit &nbsp;&nbsp;</button>
+      </div>
+  
+      <div id="eddystonePage">
+      
+        <h3>Eddystone Page<br /></h3>
+        
+        <fieldset><legend>URL Schema</legend>
+          <select id="Schema">
+            <option value="0">http://www.</option>
+            <option value="1">https://www.</option>
+            <option value="2">http://</option>
+            <option value="3">https://</option>
+          </select>
+          <input type="button" onclick="Set_schema()" value="Set">
+        </fieldset>
+        <fieldset><legend>Encoded URL</legend>
+          <input type="text" id="URL" size="16">
+          <input type="button" onclick="Set_URL()" value="Set">
+        </fieldset>
+        <button id="exit5Button">&nbsp;&nbsp; Exit &nbsp;&nbsp;</button><br /><br />
+      </div>
+      
+      <div id="configurationPage">
+      
+        <h3>Configuration Page<br /></h3>
+        
+        <fieldset><legend>Time for LED On</legend>
+          <select id="timeLedOn">
+            <option value="2">2 sec</option>
+            <option value="3">3 sec</option>
+            <option value="4">4 sec</option>
+            <option value="5">5 sec</option>
+            <option value="6">6 sec</option>
+            <option value="7">7 sec</option>
+            <option value="6">8 sec</option>
+          </select>
+          <input type="button" style="font-size:110%;" onclick="Set_Led_Time()" value="Set">
+        </fieldset>
+        <fieldset><legend>Product Code</legend>
+        <input type="text" id="product_Code" size="20"><br /><br />
+        <input type="button" style="font-size:110%;" onclick="Set_Product_Code()" value="Set">
+        </fieldset>
+        <button id="exit4Button">&nbsp;&nbsp; Exit &nbsp;&nbsp;</button><br /><br />
+      </div>
+			
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+  </body>
+</html>

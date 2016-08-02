@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.iblio_bluetag"
+        versionCode = "100" 
+        version     = "1.0.0" >
+
+    <name>iBLio BlueTAG</name>
+
+    <description>
+        App for BLueTAG iBLio
+    </description>
+
+    <author href="http://www.iblio.net" email="connect@iblio.net">
+        Giovanni Grisotti, Valter Foresto - www.iblio.net
+    </author>
+    
+    <platform name="ios">
+      <icon src="icon.png" width="96" height="96" />
+    </platform>
+    
+    <icon src="icon.png" />    
+    
+    <platform name="android" />
+	  <platform name="ios" />
+
+    <preference name="orientation" value="portrait" />  
+	  <preference name="phonegap-version" value="cli-6.1.0" />
+	
+    <gap:plugin name="cordova-plugin-ble-central" source="npm" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.4.0" />
+</widget>
