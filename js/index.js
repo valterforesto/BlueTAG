@@ -156,6 +156,7 @@ var app = {
     configurationPage.hidden = true;
     scanDeviceList.innerHTML = '';
 	  document.getElementById('msg').innerHTML = '';
+	  document.getElementById('msg2').innerHTML = '';
     document.getElementById('batteryLevel').innerHTML = '';
     document.getElementById('ledOn').innerHTML = '';
     //clearInterval(advTimer);
@@ -184,7 +185,9 @@ var app = {
     console.log(advMAC);
     if(advMAC == null) {
       document.getElementById('msg').innerHTML = '<p><b>Please (re)Tap the Device on the List</b></p>';
-    } else
+    } else {
+      document.getElementById('msg2').innerHTML = '<p><b>Connecting... Please wait</b></p>';
+    }
     app.connect();
   },
 
@@ -198,10 +201,12 @@ var app = {
       var value = document.getElementById("accessSelection").value;
       console.log (value);
       if(value == 0) {
+        document.getElementById('msg2').innerHTML = '';
         document.getElementById('ledOn').innerHTML = '<p><b>LED TAG is Flashing !!</b></p>';
         Set_Led_On();
         setTimeout(app.refreshDeviceList, 8000);  
       } else if(value == 1) {
+        document.getElementById('msg2').innerHTML = '';
         document.getElementById('ledOn').innerHTML = '<p><b>LED TAG is Flashing !!</b></p>';
         Set_Led_Url();
         setTimeout(app.refreshDeviceList, 12000);  
@@ -528,6 +533,7 @@ function read_Battery_Level() {
 function UpdateUI_Battery_Level(val) {
   console.log(val);
   var x = new DataView(val, 0);
+  document.getElementById('msg2').innerHTML = '';
   document.getElementById('batteryLevel').innerHTML = '<p><b>Battery Level is &nbsp;' + x.getUint16(0, true) + '&nbsp; mV</b></p>';
 }
 
